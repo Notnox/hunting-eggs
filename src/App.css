@@ -42,7 +42,7 @@
 }
 
 .header-inner {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -242,23 +242,23 @@
    "cards com tamanhos fixos com um example da imagem"
    -------------------------------------------------------------------------- */
 .map-grid-section {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px 64px;
   width: 100%;
 }
 
-/* Fixed card layout: exactly 340px width per card, auto-centered */
+/* 4 mapas por linha */
 .map-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 340px);
+  grid-template-columns: repeat(4, 1fr);
   justify-content: center;
-  gap: 28px;
+  gap: 22px;
 }
 
-/* O CARD COM TAMANHO FIXO */
+/* O CARD COM TAMANHO FIXO / RESPONSIVO EM 4 COLUNAS */
 .map-card {
-  width: 340px;
+  width: 100%;
   height: 310px; /* Altura fixa proporcional */
   background: var(--bg-card);
   border: 1px solid var(--border-card);
@@ -1023,7 +1023,17 @@ kbd {
 /* --------------------------------------------------------------------------
    RESPONSIVE DESIGN
    -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .map-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 860px) {
+  .map-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .dialog-info-sidebar {
     position: absolute;
     right: 0;
@@ -1038,7 +1048,7 @@ kbd {
 @media (max-width: 640px) {
   .map-cards-grid {
     grid-template-columns: 1fr;
-    max-width: 340px;
+    max-width: 360px;
     margin: 0 auto;
   }
 
